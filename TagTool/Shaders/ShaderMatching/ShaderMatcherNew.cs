@@ -83,7 +83,7 @@ namespace TagTool.Shaders.ShaderMatching
         {
             Dictionary<StringId, RenderMethodOption.OptionBlock> optionBlocks = new Dictionary<StringId, RenderMethodOption.OptionBlock>();
 
-            for (int i = 0; i < options.Count; i++)
+            for (int i = 0; i < rmdf.Methods.Count; i++)  // since sometimes Halo Online shader templates can have two or more extra blocks/options this causes i to increment beyond the bounds of the rmdf.Methods array so we just change it to that instead.
             {
                 if (rmdf.Methods[i].ShaderOptions[options[i]].Option != null)
                 {
@@ -101,7 +101,7 @@ namespace TagTool.Shaders.ShaderMatching
         {
             Dictionary<StringId, CachedTag> optionBitmaps = new Dictionary<StringId, CachedTag>();
 
-            for (int i = 0; i < options.Count; i++)
+            for (int i = 0; i < rmdf.Methods.Count; i++) //Same thing as above
             {
                 if (rmdf.Methods[i].ShaderOptions[options[i]].Option != null)
                 {
@@ -557,6 +557,9 @@ namespace TagTool.Shaders.ShaderMatching
                 if (prefixParts.Length > 0 && prefixParts[0] == "ms30")
                     descriptor.Flags |= DescriptorFlags.Ms30;
 
+                if (prefixParts.Length == 3) // since there is no code to process the reforge materials, we will just skip over it when one is encountered
+                    return false;
+                
                 var nameParts = parts[1].Split('\\');
                 if (nameParts.Length < 2)
                     return false;

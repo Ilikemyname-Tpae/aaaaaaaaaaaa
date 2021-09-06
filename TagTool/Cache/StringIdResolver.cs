@@ -65,6 +65,9 @@ namespace TagTool.Cache
                 return index;
             }
 
+            /*if (set >= setOffsets.Length)    // Mostly redundant, for the time being ;)
+                set = setOffsets.Length - 1;*/
+            
             if (set < 0 || setOffsets == null || set >= setOffsets.Length)
                 throw new IndexOutOfRangeException($"string_id set {set}");
 
