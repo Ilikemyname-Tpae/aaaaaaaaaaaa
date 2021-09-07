@@ -175,7 +175,7 @@ namespace TagTool.Shaders.ShaderMatching
                 int score = 0;
                 for (int i = 0; i < sourceRmt2Desc.Options.Length; i++)
                 {
-                    if (sourceRmt2Desc.Options[i] == destRmt2Desc.Options[i]) //This line here erros out when porting to a main menu cache, as some of the shader templates in the cache have undefined block elements, in turn cuasing the output of this to increment above the bounds of the array
+                    if (sourceRmt2Desc.Options[i] == destRmt2Desc.Options[i]) //This line here errors out when porting to a main menu cache, as some of the shader templates in the cache have undefined block elements, in turn causing the output of this to increment above the bounds of the array
                     {
                         score += 1 + weights[i];
                         commonOptions++;
