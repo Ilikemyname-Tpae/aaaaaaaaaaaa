@@ -64,9 +64,6 @@ namespace TagTool.Cache
                 // Value does not go into a set, so the index is the same as the ID
                 return index;
             }
-
-            /*if (set >= setOffsets.Length)    // Mostly redundant, for the time being ;)
-                set = setOffsets.Length - 1;*/
             
             if (set < 0 || setOffsets == null || set >= setOffsets.Length)
                 throw new IndexOutOfRangeException($"string_id set {set}");
