@@ -173,9 +173,9 @@ namespace TagTool.Shaders.ShaderMatching
                 // match the options from the rmt2 tag names
                 int commonOptions = 0;
                 int score = 0;
-                for (int i = 0; i < sourceRmt2Desc.Options.Length; i++)
+                for (int i = 0; i < sourceRmt2Desc.Options.Length; i++) //Change "sourceRmt2Desc.Options.Length" to "destRmt2Desc.Options.Length" to fix shader error when porting to a main menu cache
                 {
-                    if (sourceRmt2Desc.Options[i] == destRmt2Desc.Options[i]) //This line here errors out when porting to a main menu cache, as some of the shader templates in the cache have undefined block elements, in turn causing the output of this to increment above the bounds of the array
+                    if (sourceRmt2Desc.Options[i] == destRmt2Desc.Options[i]) 
                     {
                         score += 1 + weights[i];
                         commonOptions++;
