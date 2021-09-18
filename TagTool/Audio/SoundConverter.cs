@@ -352,8 +352,8 @@ namespace TagTool.Audio
 
         private static void DeleteFile(string name)
         {
-            if (File.Exists(name))
-                File.Delete(name);
+            if (!File.Exists(name)) // This has been erroring out when porting MCC content in particular, so for the time being I've have simply byapssed it.
+                File.Delete(name);  // However, because this has been bypassed, all the cached sound files will remain in the Temp folder, instead of being deleted as each file is converetd and ported
         }
 
         private static byte[] TruncateWAVFile(byte[] data, int sampleRate, int channelCount, int additionalOffset = 0)
