@@ -691,6 +691,10 @@ namespace TagTool.Commands.Porting
                 // the loops ran before dont account for new entry points, this corrects the index
                 int listIndex = epIndex - skipInt;
 
+                if (tableUsedSamplerParameters.Count <= listIndex)    // this issue is directly linked to the shaders that cause issue in shadermatchernew.cs
+                    listIndex = tableUsedSamplerParameters.Count - 1; // so if the amount of paramters/blocks is greater than the array it will try to access an element that
+                                                                      // doesn't exist, but since those extra blocks are all set to zero, we can just skip over them.
+                
                 var samplerParameters = tableUsedSamplerParameters[listIndex];
                 var vertexParameters = tableUsedVertexParameters[listIndex];
                 var pixelParameters = tableUsedPixelParameters[listIndex];

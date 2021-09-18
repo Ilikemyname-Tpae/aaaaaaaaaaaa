@@ -588,6 +588,7 @@
     <Compile Include="Commands\Files\ReplaceAllFilesCommand.cs" />
     <Compile Include="Commands\Files\ReplaceFileCommand.cs" />
     <Compile Include="Commands\Files\UpdateMapFilesCommand.cs" />
+    <Compile Include="Commands\Files\UpdateMapFilesAltCommand.cs" />
     <Compile Include="Commands\Files\VFilesContextFactory.cs" />
     <Compile Include="Commands\Forge\ForgeContextFactory.cs" />
     <Compile Include="Commands\Forge\ParseItemsXmlCommand.cs" />
