@@ -53,7 +53,7 @@ namespace TagTool.BlamFile
             Version = version;
             CachePlatform = platform;
 
-            Header = CacheFileHeader.Read(Version, CachePlatform, reader);
+            Header = CacheFileHeader.Read(MapVersion, Version, CachePlatform, reader);
 
             if (!Header.IsValid())
             {
@@ -150,6 +150,10 @@ namespace TagTool.BlamFile
                     else
                         reader.SeekTo(0x11C);
                     break;
+                case CacheFileVersion.HaloMCCUniversal:
+                    reader.SeekTo(0xA0);
+                    break;
+                    
 
                 case CacheFileVersion.HaloReach:
                     if (IsModifiedReachFormat(reader))
